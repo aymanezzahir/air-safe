@@ -1,0 +1,74 @@
+@use '../../tools/var' as *;
+/* *************** Start newLetter ***************** */
+.newletters{
+    background-size: cover  ;
+    background-repeat: no-repeat;
+    background-position: center 54%;
+
+    position: relative;
+    padding: 6em 0;
+    &::before{
+        @include Overlay(#000,true  );
+        opacity: .4;
+    }
+    .container{
+        position: relative;
+        @include FlexBox(true , false);
+        .textSide {
+            h2{
+                text-transform: capitalize;
+                color: #fff;
+                font-weight: 800;
+            }
+
+        };
+        .emailSide{
+            display: flex;
+            align-items: baseline;
+            input{
+                padding: 1rem ;
+                    flex: 1;
+        
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+                border: none;
+                &::placeholder{
+                    text-transform: capitalize;
+                    font-weight:600 ;
+
+                }
+                &:focus{
+                    outline: none
+                }
+            }
+            button{
+                @include Button($mainColor,1rem);
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+        }
+    }
+}
+.loadings{
+    width: 100px;
+    height: 100px;
+    border: 3px $mainColor solid;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 50%;
+    animation: Loading 1s infinite backwards;
+    border-right-color: transparent;
+}
+@keyframes Loading {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        
+   
+        transform: rotate(360deg);
+
+    }
+}
+/* *************** End newLetter ***************** */

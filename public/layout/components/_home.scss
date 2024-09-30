@@ -1,0 +1,310 @@
+@use "../tools/var" as *;
+/* *************** Start Home ***************** */
+
+.landingHome {
+  position: relative;
+  padding: 100px 0;
+  background-size: cover;
+  background-position: 50% 80%;
+
+  .overlay {
+    @include Overlay($DarkColor, false);
+  }
+
+  .container {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+    h2 {
+      text-transform: capitalize;
+      font-size: 1.3em;
+    }
+
+    h1 {
+      text-transform: capitalize;
+      color: $mainColor;
+      font-size: 2.3em;
+    }
+
+    p {
+      font-weight: lighter;
+    }
+
+    .button-link {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        margin-right: 15px;
+        padding: 8px 16px;
+        border-radius: 11px;
+        transition: 0.3s all;
+        color: white;
+        text-transform: capitalize;
+        border: none;
+        background-color: $alternateColor;
+
+        &:last-child {
+          background-color: $mainColor;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.features {
+  margin: 6em 0;
+
+  .container {
+    @include FlexBox(true, true);
+    gap: 20px;
+
+    .box {
+      color: var(--titleColor);
+      &:last-child {
+        div {
+          margin-top: 40px;
+        }
+      }
+
+      background-color: var(--grayBackground);
+      border-radius: 11px;
+      text-align: center;
+      padding: 1rem;
+      min-height: 156px;
+      min-width: 156px;
+
+      div {
+        background-color: var(--mainBackground);
+        border-radius: 11px;
+        text-transform: uppercase;
+        font-weight: bolder;
+        padding: 8px 16px;
+      }
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+.promo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2em 0;
+  background-position: center;
+  position: relative;
+
+  &::before {
+    @include Overlay(#000, true);
+  }
+
+  .container {
+    position: relative;
+    @include FlexBox(true, false);
+    color: #fff;
+    flex-direction: column;
+    row-gap: 4em;
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    h2 {
+      text-transform: capitalize;
+      font-size: 2em;
+
+      span {
+        color: $mainColor;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+button.general {
+  @include Button($mainColor, 8px 16px);
+}
+.whoweare {
+  .content {
+    @include FlexBox(true, false);
+    column-gap: 2em;
+
+    & > div {
+      flex-basis: 40%;
+    }
+
+    .image {
+      position: relative;
+
+      &::before {
+        @include Pseudo(20px, -20px);
+        background-color: $alternateColor;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+    }
+
+    .textside {
+      color: var(--titleColor);
+      hr {
+        margin: 1em 0;
+      }
+
+      h2 {
+        line-height: 1.8;
+        letter-spacing: 2.6px;
+      }
+    }
+
+    h3 {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.6;
+      text-transform: capitalize;
+    }
+  }
+}
+
+section.popular {
+  border-radius: 11px;
+
+  .container {
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--titleColor);
+      flex-wrap: wrap;
+      aside {
+        border-radius: 11px;
+        height: max-content;
+        padding: 3em;
+        background-color: var(--grayBackground);
+        h2.title_airplane {
+          border-radius: 11px;
+          padding: 1rem 2rem;
+          background-color: var(--mainBackground);
+          text-transform: capitalize;
+          text-align: center;
+        }
+        .content_airplane {
+          background-color: var(--mainBackground);
+          border-radius: 11px;
+          margin-top: 1rem;
+          height: 200px;
+          transition: 0.3s all;
+          overflow: hidden;
+          h3 {
+            border-bottom: 1px solid var(--titleColor);
+            text-transform: capitalize;
+            transition: 0.3s all;
+            margin-top: 0;
+            padding: 0.5rem 1rem;
+
+            &::before {
+              content: "";
+              margin-right: 0;
+              transition: 0.3s all;
+            }
+            cursor: pointer;
+            &:hover,
+            &.actived {
+              &::before {
+                content: ">";
+                margin-right: 20px;
+              }
+              background-color:  var(--main-color);
+             
+              color: #fff;
+            }
+          }
+        }
+        
+      }
+    }
+    button {
+      transition: 0.3s all;
+
+      @include Button($mainColor, 1rem 2rem);
+      margin: 3em auto;
+      &:hover {
+        transform: scale(1.1);
+        border-radius: 24px;
+      }
+    }
+    main {
+      flex-basis: 30%;
+      min-width: 300px;
+    }
+  }
+}
+
+.card_airpalne {
+  border-radius: 11px;
+  cursor: pointer;
+  background-color: var(--grayBackground);
+  padding: 1rem;
+  color: var(--titleColor);
+  img{
+    border-radius: 11px;
+    overflow: hidden;
+  }
+  .features_airplane{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    h3{
+      
+      color: #fff;
+      background-size: cover;
+      padding: 8px 16px;
+      border-radius: 6px;
+      
+      &.popular{
+        background-image: none !important;
+        background-color: gold !important;
+        color: black;
+      }
+    }
+    
+  }
+  h2{
+    margin: 10px 0;
+    color: $mainColor;
+  }
+  .status{
+    .desc{
+      line-height: 1.6;
+    }
+    .statics{
+      display: flex;
+      margin: 10px 0;
+      color: var(--mainBackground);
+      font-weight: 800;
+      font-size: 15px;
+      justify-content: space-evenly;
+      i{
+        color: var(--titleColor);
+        margin-left: 5px;
+      }
+    }
+  }
+  h3.price{
+    text-align: center;
+    color: $mainColor;
+  }
+}
+
+/* *************** End Home ***************** */

@@ -1,0 +1,248 @@
+@use "../tools/var" as *;
+/* *************** Start Tickets ***************** */
+section.TicketsLanding {
+  height: calc(100dvh - 100px);
+  @include GeneralBg(center, 60%, true);
+  position: relative;
+  .container {
+    position: relative;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    .content {
+      display: flex;
+      flex-direction: column;
+      opacity: 0.6;
+
+      nav {
+        display: flex;
+        overflow: hidden;
+        div {
+          padding: 8px 16px;
+          font-weight: 500;
+          font-size: 1.6em;
+          background-color: var(--grayBackground);
+          transition: 0.3s ease-in-out all;
+          color: var(--titleColor);
+          opacity: 0.8;
+          cursor: pointer;
+          &:hover,
+          &.active {
+            opacity: 1;
+            font-weight: 900;
+          }
+        }
+        border-top-left-radius: 11px;
+        border-top-right-radius: 11px;
+        max-width: max-content;
+      }
+      main {
+        border-radius: 11px;
+        border-top-left-radius: 0;
+        padding: 3em;
+        background-color: var(--mainBackground);
+        .form {
+          display: flex;
+          align-items: center;
+          column-gap: 15px;
+        }
+        div {
+          h2 {
+            color: var(--titleColor);
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+          }
+          svg {
+            fill: black;
+          }
+        }
+        input {
+          border: none;
+          padding: 1rem;
+          border-radius: 11px;
+          background-color: #ececec;
+          color: black;
+          font-weight: 700;
+
+          &::placeholder {
+            text-transform: capitalize;
+            letter-spacing: 2px;
+            color: black;
+            font-weight: 700;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.login {
+  .container {
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+
+      .password-input {
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+        i {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          border-left: 1px solid var(--titleColor);
+          transform: translateY(-50%);
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+i.special {
+  padding: 8px;
+  color: var(--titleColor);
+  cursor: pointer;
+  transition: 0.3s all;
+  &:hover {
+    background-color: #efefef;
+  }
+}
+
+.login .message_email {
+  position: absolute;
+  background-color: var(--grayBackground);
+  padding: 1rem;
+  right: 20px;
+  border-radius: 11px;
+  top: 129px;
+  color: var(--titleColor);
+  padding-left: 4rem;
+  transition: 0.3s all;
+  &.cancelLeftPadding {
+    cursor: pointer;
+  }
+  h2 {
+    letter-spacing: 1.3px;
+    margin: 10px 0;
+  }
+  h3 {
+    letter-spacing: 1.3px;
+  }
+  > div > div {
+    border: var(--titleColor) 1px solid;
+    border-radius: 11px;
+    padding: 8px 16px;
+    position: relative;
+    overflow: hidden;
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      i {
+        border-radius: 11px;
+        font-size: 16px;
+        padding-left: 1rem;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgb(171 169 169 / 60%);
+    }
+  }
+  .close {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+// darck mode
+body.darkMode {
+  // section.TicketsLanding {
+  //   .container{
+  //     .content{
+  //       main{
+  //         form{
+  //           input{
+
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  i.special {
+    &:hover {
+      background-color: #666 !important;
+    }
+  }
+  .parent_clipBoard {
+    &::after {
+      background-color: rgba(0, 0, 0, 0.6) !important;
+    }
+  }
+}
+section.boxBox {
+  .container{
+    .content{
+      @include Grid(300px, 50px);
+      gap: 1rem;
+    #box{
+      background-color: black;
+      color: var(--titleColor);
+      border-radius: 11px;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      font-family: $fontFamily;
+      div{
+        padding: .5rem;
+        h1{
+          margin: 10px 0;
+        }
+        p{
+          color: var(--paraghColor);
+          font-size: 13px;
+        }
+        h1{
+          color: $mainColor;
+        }
+      }
+      button{
+        width: 100%;
+        display: block;
+      }
+    }
+    }
+  }
+}
+.methode{
+  .container{
+    .grid{
+      @include Grid(300px, 30px);
+      gap: 30px;
+    }
+  }
+}
+.plane{
+  .grid{
+    @include Grid(300px, 30px);
+    gap: 30px;
+    img{
+      display: block;
+      width: 100%;
+    }
+  }
+}
+/* *************** End Tickets ***************** */

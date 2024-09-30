@@ -1,0 +1,12 @@
+TODO:
+    1. tickits  , rent
+
+TODO Later : 
+    1. remove the link from rent for mush better UX /header.jsx
+    2. found solution of function generator / api.js;
+    3. if you don't use unsplash remove the key from api / api.js
+    ----------------------------------------------------------------------------------------
+    4. find a solution for json file why it is return a html code
+INFO:
+    sad path is to set err and status
+    happy path is visca versa

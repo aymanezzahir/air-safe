@@ -1,0 +1,20 @@
+@use '../../tools/var'as *;
+
+/* *************** Start Footer ***************** */
+footer{
+    background-color: $alternateColor;
+    text-align: center;
+    color: white;
+
+    p{
+        padding: 2rem 0;
+        font-family:$fontFamilySec ;
+        font-weight: 500;
+        text-transform: capitalize;
+        a{
+            color: $mainColor;
+           
+        }
+    }
+}
+/* *************** End Footer ***************** */

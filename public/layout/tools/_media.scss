@@ -1,0 +1,122 @@
+/* *************** Start Media ***************** */
+@use "./var" as *;
+@media (max-width: 514px) {
+  body {
+    header {
+      nav {
+        transition: 0.3s ease-in-out;
+      }
+      ul.links {
+        flex-direction: column;
+        position: absolute;
+        transition: 0.3s ease-in-out;
+        top: 0;
+        height: 100dvh;
+
+        width: 25%;
+        min-width: 200px;
+        background-color: #cecece;
+        .bottom-arrow {
+          left: -17px !important;
+          top: 20px !important;
+          border-bottom-color: transparent !important;
+          border-left-color: var(--grayBackground) !important;
+        }
+        > li {
+          padding: 20px !important;
+          width: 100%;
+          ul {
+            left: -217px !important;
+            top: 20px !important;
+            li {
+              justify-content: right;
+
+            }
+          }
+        }
+      }
+    }
+  }
+  body.darkMode {
+    header {
+      ul {
+        background-color: var(--grayBackground);
+      }
+    }
+  }
+  .contact {
+    flex-direction: column;
+    > * {
+      flex-basis: 100% !important;
+    }
+  }
+}
+@media (max-width: 411px) {
+
+  .features {
+    .container {
+      justify-content: center;
+      align-items: center;
+      .box {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .newletters .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > div {
+      flex: 1;
+      margin: 1rem 0;
+    }
+  }
+  .whoweare {
+    .content {
+      .image {
+        display: none;
+      }
+      .textside {
+        flex-basis: 100%;
+        text-align: center;
+      }
+    }
+  }
+  section.popular{
+    .container{
+      .content{
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+/* very Small */
+@media (min-width: 0px) {
+  body {
+    font-size: 12px;
+  }
+}
+/* Small */
+@media (min-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+}
+/* End the globale Rule */
+/* *************** End Media ***************** */

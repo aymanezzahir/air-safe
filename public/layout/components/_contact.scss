@@ -1,0 +1,101 @@
+@use "../tools/var" as *;
+/* *************** Start Tickets ***************** */
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+  > * {
+    flex-basis: 50%;
+    height: 100%;
+  }
+  .myImageForComment {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    position: relative;
+    padding: 1em;
+    height: calc(100vh - 120px);
+
+    min-height: 377px;
+    .content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      justify-content: center;
+      align-items: space-between;
+      color: #fff;
+
+      h2 {
+        text-align: center;
+        font-size: 6em;
+        font-family: $fontFamily;
+      }
+      p {
+        text-align: left;
+        margin-top: 1.5rem;
+        color: #bfbfbf;
+      }
+      img {
+        max-width: 150px;
+        margin: 0 auto;
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+  form.myForm {
+    padding: 1rem;
+    label {
+      display: block;
+      margin: 1rem 0;
+    }
+  }
+}
+.contact-details {
+  padding: 2rem 0;
+  background-color: var(--grayBackground);
+  .container {
+    .content {
+      @include Grid(30%, 10px);
+      gap: 3%;
+      .box {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        row-gap: 10px;
+        text-align: center;
+        h2 {
+          text-transform: uppercase;
+          color: var(--titleColor);
+          letter-spacing: 3.5px;
+        }
+        span {
+          width: 100%;
+          display: block;
+          padding: 10px 0;
+          color: var(--titleColor);
+          cursor: pointer;
+          font-weight: bold;
+          font-family: $fontFamilySec;
+          text-transform: uppercase;
+          background-color: var(--mainBackground);
+        }
+        h3 {
+          color: var(--paraghColor);
+          text-transform: capitalize;
+        }
+        p {
+          line-height: 1.2;
+          color: var(--paraghColor);
+        }
+        i {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+}
+/* *************** End Tickets ***************** */

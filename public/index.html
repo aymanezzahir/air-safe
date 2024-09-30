@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="for more comfortable experience with the fly"
+    />
+    <!-- normalize  -->
+    <link rel="stylesheet" href="/layout/tools/normalize.css" />
+    <!-- main css file -->
+    <link rel="stylesheet" href="/layout/main.css" />
+
+    <!-- font awesome 6 -->
+    <link rel="stylesheet" href="/layout/tools/all.min.css" />
+
+    <title>airSave: Flying the Future</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="../src/index.js" type="text/JSX"></script>
+    <script>
+      (function() {
+        let info = console.info
+        console.info = function (message) {
+          if (!/Download the React DevTools/.test(message)) info.apply(console, arguments) 
+        }
+      })()
+    </script>
+    <script src="./js/loadingImg.js" defer ></script>
+  </body>
+</html>

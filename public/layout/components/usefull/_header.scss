@@ -1,0 +1,268 @@
+@use "../../tools/var" as *;
+
+/* *************** Start Header *****************  */
+body.darkMode {
+  header {
+    background-color: var(--mainBackground) !important;
+  }
+}
+header {
+  padding: 15px 0;
+  position: fixed;
+  inset: 0;
+  background-color: #d4d4d4;
+  z-index: 99999;
+
+  bottom: auto;
+  font-family: $fontFamilySec;
+  .container {
+    @include FlexBox(true, false);
+  }
+  .icon-logo {
+    max-width: 100px !important;
+    display: flex;
+    font-family: $fontFamily;
+    align-items: center;
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+  nav {
+    @include FlexBox(true, false);
+    color: var(--titleColor);
+    ul.links {
+      @include FlexBox(false, false);
+
+      li{
+        position: relative;
+        display: flex;
+        align-items: center;
+        a{
+          &.rentLink:hover{
+            & + div{
+              display: block;
+            }
+          }
+        }
+        .bottom-arrow{
+          @include Arrow(true,'bottom',52px,0,var(--grayBackground));
+          @media screen and   (max-width:514) {
+            @include Arrow(true,'left',100px,20px,var(--grayBackground));
+          }
+        }
+        .up-arrow{
+          @include Arrow(false,'top','','',var(--titleColor));
+          margin-top: 6px;
+          border-width: 6px;
+          margin-left: 3px;
+        }
+        
+        ul{
+          position: absolute;
+          left: 0;
+          padding: 1rem;
+          top: 76px;
+          min-width: 200px;
+          li{
+            padding: 1rem;
+          }
+          background-color: var(--grayBackground);
+        }
+        a {
+       
+          padding: 0 10px;
+          position: relative;
+          font-weight: 600;
+          text-transform: capitalize;
+          transition: 0.3s all;
+          &::after {
+            border-radius: 11px;
+            @include Pseudo(105%, 10px);
+            transition: 0.3s all;
+            width: 0;
+            background-color: $mainColor;
+            height: 4px;
+          }
+          &:hover,
+          &.active-link {
+            color: $mainColor;
+            &::after {
+              width: 25%;
+            }
+          }
+        }
+      }
+      .social-media {
+        position: absolute;
+        bottom: 20px;
+        i {
+          margin: 15px;
+          padding: 10px;
+          color: white;
+          border-radius: 50%;
+          &.fa-facebook,
+          &.fa-twitter {
+            background-color: royalblue;
+          }
+          &.fa-instagram {
+            background-color: blueviolet;
+          }
+        }
+      }
+    }
+  }
+
+  .icon {
+    margin-left: 10px;
+    > * {
+      padding-right: 20px;
+    }
+    & :last-child {
+      border-left: var(--titleColor) solid 1px;
+      padding-left: 20px;
+      padding-right: 0;
+    }
+  }
+  .setting {
+    flex-direction: column;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    top: 0;
+    height: 100dvh;
+    transition: 0.3s all !important ;
+    width: 25%;
+    min-width: 200px;
+    background-color: var(--grayBackground);
+    li {
+      padding: 20px !important;
+      border-bottom: 1px solid black;
+      width: 100%;
+      &.darkModeButton {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        justify-content: center;
+        position: relative;
+        p {
+          font-weight: 900;
+          font-family: $fontFamily;
+          letter-spacing: 2px;
+          text-transform: capitalize;
+        }
+        .toggle:before,
+        .toggle:after {
+          background: hsl(0, 0%, 90%);
+        }
+        .toggle {
+          position: relative;
+        }
+        .curtain,
+        .sr,
+        .toggle:before,
+        .toggle:after {
+          position: absolute;
+        }
+        .curtain,
+        .toggle:before,
+        .toggle:after {
+          transition: transform var(--dur);
+        }
+        .curtain,
+        .toggle:before,
+        .toggle:checked:after {
+          transition-timing-function: ease-out;
+        }
+        .curtain,
+        .sr {
+          top: 0;
+          left: 0;
+        }
+        .curtain {
+          mix-blend-mode: difference;
+          pointer-events: none;
+          width: 100%;
+          height: 100%;
+          transform: scaleX(0);
+          transform-origin: 0 50%;
+        }
+        .sr,
+        .toggle {
+          overflow: hidden;
+        }
+        .sr {
+          clip: rect(1px, 1px, 1px, 1px);
+          color: transparent;
+          width: 1px;
+          height: 1px;
+        }
+        .toggle {
+          background: currentColor;
+          border-radius: 0.75em;
+          cursor: pointer;
+          width: 3em;
+          height: 1.5em;
+          -webkit-appearance: none;
+          appearance: none;
+          -webkit-tap-highlight-color: transparent;
+        }
+        .toggle:before,
+        .toggle:after {
+          border-radius: 50%;
+          content: "";
+          display: block;
+          top: 0.25em;
+          left: 0.25em;
+          width: 1em;
+          height: 1em;
+        }
+        .toggle:before,
+        .toggle:checked:after {
+          transition-delay: 0s;
+        }
+        .toggle:checked:before,
+        .toggle:after {
+          transition-delay: calc(var(--dur) * 0.75);
+          transition-timing-function: cubic-bezier(0.3, 1.6, 0.5, 0.7);
+        }
+        .toggle:before {
+          transform: translateX(-1.5em);
+        }
+        .toggle:checked:before {
+          transform: translateX(1.5em);
+        }
+        .toggle:checked:after {
+          transform: translateX(3em);
+        }
+        .toggle:checked ~ .curtain {
+          transform: scaleX(1);
+        }
+        .toggle:focus {
+          outline: transparent;
+        }
+        .parent-dark {
+          position: relative;
+          width: max-content;
+        }
+      }
+      &.login{
+        display: flex;
+        button{
+          @include Button($mainColor , 1rem )
+        }
+      }
+    }
+  }
+
+}
+.bottomon {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: $mainColor;
+  padding: 20px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* *************** End Header ***************** */

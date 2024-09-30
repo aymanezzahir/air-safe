@@ -1,0 +1,87 @@
+// colors
+$DarkColor: #1f1b24;
+$grayColor: #cecece;
+$whiteColor: #fff;
+$mainColor: #1fa6de;
+$secondColor: #bbb;
+$secondColorWh:#5e5e5e;
+$alternateColor: #1d406a;
+
+body {
+  --mainBackground: #{$whiteColor};
+  --titleColor: #{$DarkColor};
+  --grayBackground: #{$grayColor};
+  --paraghColor: #{$secondColorWh};
+  
+  --boxShadowcolor: hsla(0, 0%, 100%, 0.16);
+  background-color: var(--mainBackground);
+}
+
+body.darkMode {
+  --mainBackground: #{$DarkColor};
+  --titleColor: #{$whiteColor};
+  --paraghColor: #{$secondColor};
+  --boxShadowcolor: rgba(255, 255, 255, 0.16);
+  --grayBackground: #{$alternateColor};
+  background-color: #121212;
+}
+
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;700;900&family=Roboto:ital,wght@0,100;0,300;1,700;1,900&display=swap");
+$fontFamily: "Outfit", sans-serif;
+$fontFamilySec: "Roboto", sans-serif;
+
+// function
+@mixin FlexBox($jC, $isWrapper) {
+  display: flex;
+  justify-content: if($jC, space-between, flex-start);
+  align-items: center;
+  flex-wrap: if($isWrapper, wrap, nowrap);
+}
+@mixin Overlay($color, $isPseudo) {
+  @if ($isPseudo) {
+    content: "";
+  }
+  position: absolute;
+  inset: 0;
+  background-color: $color;
+  opacity: 0.6;
+}
+@mixin Grid($minColumn, $marginTop) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($minColumn, 1fr));
+  margin: $marginTop 0;
+  
+}
+
+@mixin Pseudo($top, $left) {
+  content: "";
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin Button($bgColor, $padding) {
+  padding: $padding;
+  background-color: $bgColor;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 6px;
+  font-weight: 600;
+  display: block;
+  border: none;
+  color: $whiteColor;
+}
+
+@mixin GeneralBg($leftPosition, $topPosition, $isAttachement) {
+  background-attachment: if($isAttachement, fixed, "");
+  background-size: cover;
+  background-position: $leftPosition $topPosition;
+}
+
+@mixin Arrow($isAbsolute,$direction, $topPosition, $leftPosition , $color) {
+  position: if($isAbsolute,absolute,'');
+  border: 12px solid transparent;
+  border-#{$direction}-color: $color;
+  top: $topPosition;
+  left: $leftPosition;
+}
